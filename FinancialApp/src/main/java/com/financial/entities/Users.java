@@ -52,6 +52,9 @@ public class Users {
 	@OneToMany(mappedBy ="users")
 	List<BankAccounts> bankAccounts;
 	
+	@OneToMany(mappedBy = "users")
+	List<Wallets> wallets;
+	
 	@OneToMany(mappedBy ="users")
 	List<PaymentMethods> paymentMethods;	
 }
