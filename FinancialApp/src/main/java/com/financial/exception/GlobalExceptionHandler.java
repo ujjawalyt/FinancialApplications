@@ -86,6 +86,28 @@ public class GlobalExceptionHandler {
 		
 	}
 	
+	@ExceptionHandler(InsufficientBalanceException.class)
+	public ResponseEntity<MyErrorDetails> myISBExceptionHandler(InsufficientBalanceException ws ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		error.setTimestamp(LocalDate.now());
+		error.setMessage(ws.getMessage());
+		error.setDescription(wr.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(error,HttpStatus.BAD_REQUEST);
+		
+	}
 	
+	@ExceptionHandler(InvalidAmountException.class)
+	public ResponseEntity<MyErrorDetails> myINVExceptionHandler(InvalidAmountException ws ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		error.setTimestamp(LocalDate.now());
+		error.setMessage(ws.getMessage());
+		error.setDescription(wr.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(error,HttpStatus.BAD_REQUEST);
+		
+	}
 	
 }

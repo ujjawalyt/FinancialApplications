@@ -9,13 +9,13 @@ import com.financial.exception.UserNotFoundException;
 @Service
 public interface BankAccountService {
 
-	BankAccountDto addBankDetails(BankAccountDto bankAccountDto ,Integer userid)
-	throws UserNotFoundException, BankAccountNotFoundException;
-	
+	BankAccountDto addBankDetails(BankAccountDto bankAccountDto, Integer userid)
+			throws UserNotFoundException, BankAccountNotFoundException;
+
 	public String removeBankAccountDetails(Integer userid, Integer bankId)
 			throws UserNotFoundException, BankAccountNotFoundException;
-	
+
 	public BankAccountDto updateBankAccountDetails(Integer userId, Integer bankId, BankAccountDto bankAccountDto)
 			throws UserNotFoundException, BankAccountNotFoundException;
-	
+
 }

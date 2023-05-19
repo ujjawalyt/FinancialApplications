@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-
 @SpringBootApplication
 
 public class FinancialAppApplication {
@@ -15,7 +14,6 @@ public class FinancialAppApplication {
 		System.out.println("Financial Application is start running...!");
 	}
 
-	
 	@Bean
 	public ModelMapper modelMapper() {
 		return new ModelMapper();

@@ -23,33 +23,32 @@ public class BankAccountController {
 
 	@Autowired
 	private BankAccountService bankAccountService;
-	
-	@PostMapping("addbankAccount/user/{userid}")
-	public ResponseEntity<BankAccountDto> addBankToUser
-	(@RequestBody BankAccountDto bankAccountDto, @PathVariable("userid") Integer userid)
-	throws UserNotFoundException,BankAccountNotFoundException{
-		
-		return new ResponseEntity<BankAccountDto>
-		(bankAccountService.addBankDetails(bankAccountDto, userid),HttpStatus.CREATED);
-		
-	}
-	
-	 @DeleteMapping("delete/user/{userid}/bank/{bankId}")
-	 public ResponseEntity<String> removeBankAccount(@PathVariable("userid") Integer userid, @PathVariable("bankId") Integer bankId)
-	    		throws UserNotFoundException, BankAccountNotFoundException{
-		 
-		 return new ResponseEntity<String>(bankAccountService.removeBankAccountDetails(userid, bankId),HttpStatus.OK);
-	       
-	  }
-	 
-@PutMapping("update/user/{userid}/bank/{bankId}")
-	    public ResponseEntity<BankAccountDto> updateBankAccount(@PathVariable("userid") Integer userId, @PathVariable("bankId") Integer bankId, @RequestBody BankAccountDto bankAccountDto) 
 
-	    		throws UserNotFoundException, BankAccountNotFoundException{
-	        
-	return new ResponseEntity<BankAccountDto>(bankAccountService.updateBankAccountDetails(userId, bankId, bankAccountDto),HttpStatus.OK);
-	   }
-	
-	
-			
+	@PostMapping("addbankAccount/user/{userid}")
+	public ResponseEntity<BankAccountDto> addBankToUser(@RequestBody BankAccountDto bankAccountDto,
+			@PathVariable("userid") Integer userid) throws UserNotFoundException, BankAccountNotFoundException {
+
+		return new ResponseEntity<BankAccountDto>(bankAccountService.addBankDetails(bankAccountDto, userid),
+				HttpStatus.CREATED);
+
+	}
+
+	@DeleteMapping("delete/user/{userid}/bank/{bankId}")
+	public ResponseEntity<String> removeBankAccount(@PathVariable("userid") Integer userid,
+			@PathVariable("bankId") Integer bankId) throws UserNotFoundException, BankAccountNotFoundException {
+
+		return new ResponseEntity<String>(bankAccountService.removeBankAccountDetails(userid, bankId), HttpStatus.OK);
+
+	}
+
+	@PutMapping("update/user/{userid}/bank/{bankId}")
+	public ResponseEntity<BankAccountDto> updateBankAccount(@PathVariable("userid") Integer userId,
+			@PathVariable("bankId") Integer bankId, @RequestBody BankAccountDto bankAccountDto)
+
+			throws UserNotFoundException, BankAccountNotFoundException {
+
+		return new ResponseEntity<BankAccountDto>(
+				bankAccountService.updateBankAccountDetails(userId, bankId, bankAccountDto), HttpStatus.OK);
+	}
+
 }

@@ -29,7 +29,7 @@ public class SwaggerConfig {
 		Contact contact = new Contact("Ujjawal Prakash", "https://github.com/ujjawalyt/FinancialApplications",
 				"ujjawalyt@gmail.com");
 
-		return new ApiInfoBuilder().title("Social Media Application")
+		return new ApiInfoBuilder().title("Financial Applications")
 				.description("This Project is developed by Ujjawal Prakash").version("1.0.0").contact(contact)
 				.license("Licence of APIS").build();
 
