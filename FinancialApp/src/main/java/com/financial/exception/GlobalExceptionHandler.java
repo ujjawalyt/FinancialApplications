@@ -110,4 +110,16 @@ public class GlobalExceptionHandler {
 		
 	}
 	
+	@ExceptionHandler(PaymentMethodNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> myINVExceptionHandler(PaymentMethodNotFoundException ws ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		error.setTimestamp(LocalDate.now());
+		error.setMessage(ws.getMessage());
+		error.setDescription(wr.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(error,HttpStatus.BAD_REQUEST);
+		
+	}
+	
 }
